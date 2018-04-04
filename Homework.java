@@ -14,7 +14,7 @@ public class Homework {
         }
 
         for (int anArr : arr) {
-            if (anArr > secondMaxVal && anArr < maxVal) secondMaxVal = anArr;
+            if (anArr > secondMaxVal && anArr <= maxVal) secondMaxVal = anArr;
         }
 
         return secondMaxVal;
@@ -23,7 +23,7 @@ public class Homework {
     @Test
     public void test() {
 
-        int[] arr = {1, 3, 4, 1, 2, 8, 17, 5, 2, 5, 21, 5, 2, 2, 20, 22};
+        int[] arr = {1, 2, 3, 3};
 
         System.out.println(Homework.secondLargestNumber(arr));
 
