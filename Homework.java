@@ -12,17 +12,19 @@ public class Homework {
 
         Integer maxVal = Integer.MIN_VALUE;
         Integer secondMaxVal = Integer.MIN_VALUE;
+        List<Integer> arrChanged = new ArrayList<>(arr);
 
-        for (Integer anArr : arr) {
+
+        for (Integer anArr : arrChanged) {
             if (anArr > maxVal) {
                 maxVal = anArr;
             }
         }
 
-        arr.remove(maxVal);
+        arrChanged.remove(maxVal);
 
-        for (Integer anArr : arr) {
-            if (anArr > secondMaxVal && anArr <= maxVal) {
+        for (Integer anArr : arrChanged) {
+            if (anArr > secondMaxVal) {
                 secondMaxVal = anArr;
             }
         }
@@ -33,10 +35,11 @@ public class Homework {
     @Test
     public void test() {
 
-        List<Integer> minusArr = new ArrayList<>(Arrays.asList(-1, -1, -3, -4));
-        List<Integer> plusArr = new ArrayList<>(Arrays.asList(1, 2, 3, 3));
+        List<Integer> minusArr = new ArrayList<>(Arrays.asList(0, -1, -2, -3, -4));
+        List<Integer> plusArr = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
 
         System.out.println(Homework.secondLargestNumber(minusArr));
         System.out.println(Homework.secondLargestNumber(plusArr));
+
     }
 }
