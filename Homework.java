@@ -2,19 +2,29 @@ package homework;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Homework {
 
-    private static int secondLargestNumber(int[] arr) {
+    private static Integer secondLargestNumber(List<Integer> arr) {
 
-        int maxVal = 0;
-        int secondMaxVal = 0;
+        Integer maxVal = Integer.MIN_VALUE;
+        Integer secondMaxVal = Integer.MIN_VALUE;
 
-        for (int anArr : arr) {
-            if (anArr > maxVal) maxVal = anArr;
+        for (Integer anArr : arr) {
+            if (anArr > maxVal) {
+                maxVal = anArr;
+            }
         }
 
-        for (int anArr : arr) {
-            if (anArr > secondMaxVal && anArr <= maxVal) secondMaxVal = anArr;
+        arr.remove(maxVal);
+
+        for (Integer anArr : arr) {
+            if (anArr > secondMaxVal && anArr <= maxVal) {
+                secondMaxVal = anArr;
+            }
         }
 
         return secondMaxVal;
@@ -23,9 +33,10 @@ public class Homework {
     @Test
     public void test() {
 
-        int[] arr = {1, 2, 3, 3};
+        List<Integer> minusArr = new ArrayList<>(Arrays.asList(-1, -1, -3, -4));
+        List<Integer> plusArr = new ArrayList<>(Arrays.asList(1, 2, 3, 3));
 
-        System.out.println(Homework.secondLargestNumber(arr));
-
+        System.out.println(Homework.secondLargestNumber(minusArr));
+        System.out.println(Homework.secondLargestNumber(plusArr));
     }
 }
